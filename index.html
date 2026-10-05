@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
 <title>Class 10 Study Guide</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -113,6 +114,60 @@ input[type=checkbox]{accent-color:#2563eb;width:17px;height:17px}
 .row:hover{border-color:#2563eb;transform:translateX(-3px)}
 .row small{display:block;color:var(--muted)}
 .row .btn{padding:7px 14px;font-size:.85rem}
+
+/* ===== Responsive: phones, tablets, landscape, wide screens ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{min-height:100vh;min-height:100dvh;overflow-x:hidden}
+.wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+.ch .t{min-width:0;overflow-wrap:anywhere}
+.ch{min-height:60px}
+.contact{max-width:100%;overflow-wrap:anywhere;text-align:center}
+.tag{max-width:100%}
+.ch:active,.mood:active,.tab:active,.step:active{transform:scale(.98)}
+.btn:active,.play:active,.musicbtn:active,.contact:active{transform:scale(.96)}
+#gate{display:flex;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom))}
+.gbox{margin:auto}
+.gbox input{font-size:16px}
+@media (min-width:1300px){.wrap{max-width:1240px}.chapters{grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}.why{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:820px){
+  body{background-attachment:scroll}
+  header{padding:34px 0 20px}
+  h2{font-size:1.45rem;margin:36px 0 4px}
+  .tabs{width:100%;border-radius:18px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:1 0 auto;padding:11px 18px}
+}
+@media (max-width:560px){
+  .wrap{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+  h1{font-size:2rem}
+  header p{font-size:.95rem}
+  .chapters,.why{grid-template-columns:minmax(0,1fr)}
+  .ch{padding:12px 14px}
+  .ch .go{font-size:.75rem}
+  .group h3{font-size:1rem}
+  .step{padding:14px;gap:12px}
+  .num{width:34px;height:34px;border-radius:10px;font-size:.9rem}
+  .step h3{font-size:1rem}.step p{font-size:.9rem}
+  .why .card{padding:14px}
+  .player{padding:16px}
+  .moods{grid-template-columns:repeat(3,1fr);gap:8px}
+  .mood{padding:14px 4px;font-size:.9rem}
+  .ctrl{gap:12px}
+  .now{flex-basis:100%;order:3}
+  .ctrl label:has(#vol){flex:1;order:2}
+  input[type=range]{width:100%;flex:1}
+  .play{order:1}
+  .soonbox{padding:36px 12px}
+  .musicbtn{padding:11px 22px}
+  footer{margin-top:36px}
+}
+@media (max-width:360px){h1{font-size:1.75rem}.mood{font-size:.8rem}.tab{padding:10px 14px}}
+@media (max-height:520px) and (orientation:landscape){header{padding:18px 0 12px}.gbox{padding:20px}}
+@media (hover:none){
+  .musicbtn .eq i{animation:bar .8s ease-in-out infinite alternate}.musicbtn .eq i:nth-child(2){animation-delay:.15s}.musicbtn .eq i:nth-child(3){animation-delay:.3s}
+  .ch:hover,.step:hover,.why .card:hover,.mood:hover,.tab:hover,.btn:hover,.play:hover,.musicbtn:hover,.contact:hover,.tag:hover{transform:none;box-shadow:none}
+  .card:hover::before{opacity:0}.ch:hover::after{left:-70%}.ch:hover .n{transform:none;box-shadow:none}.ch:hover .go{transform:none}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ch{opacity:1}}
 </style>
 </head>
@@ -283,7 +338,7 @@ function watch(u){
   let ap=null,rq=null;
   const draw=()=>{
     if(ap===null||rq===null)return;
-    if(ap||u.email===A.adminEmail){unlock();loadLinks();return}
+    if(ap||A.adminEmails.includes((u.email||'').toLowerCase())){unlock();loadLinks();return}
     if(rq&&rq.status==='rejected')lock('<h2>❌ Request declined</h2><p>Your request was not approved. Contact the owner if this is a mistake.</p>'+so);
     else if(rq)lock('<div class="spin"></div><h2>⏳ Waiting for approval</h2><p>Your request is with Rudra. This page unlocks automatically once approved.</p>'+so);
     else form(u);
