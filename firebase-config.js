@@ -1,6 +1,7 @@
 /* PASTE YOUR FIREBASE WEB APP CONFIG HERE (Firebase console > Project settings > Your apps) */
 window.APP = {
-  adminEmail: "Rudra.anand2494@gmail.com",
+  /* Owners: add more emails inside the brackets, all lowercase, also add them in firestore.rules */
+  adminEmails: ["rudra.anand2494@gmail.com", "Rudra.anand2494@gmail.com", "Rudra.anand5150@gmail.com", "rudra.anand5150@gmail.com"],
   firebaseConfig: {
     apiKey: "AIzaSyAJdcmAeveX-g38YRzhT8R0J11ZMzhf6uw",
     authDomain: "study-tools-f66bb.firebaseapp.com",
