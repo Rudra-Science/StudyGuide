@@ -2,11 +2,11 @@
 window.APP = {
   adminEmail: "Rudra.anand2494@gmail.com",
   firebaseConfig: {
-    apiKey: "PASTE_HERE",
-    authDomain: "PASTE_HERE",
-    projectId: "PASTE_HERE",
-    storageBucket: "PASTE_HERE",
-    messagingSenderId: "PASTE_HERE",
-    appId: "PASTE_HERE"
+    apiKey: "AIzaSyAJdcmAeveX-g38YRzhT8R0J11ZMzhf6uw",
+    authDomain: "study-tools-f66bb.firebaseapp.com",
+    projectId: "study-tools-f66bb",
+    storageBucket: "study-tools-f66bb.firebasestorage.app",
+    messagingSenderId: "532508079170",
+    appId: "1:532508079170:web:9e14c16e0d6d99567aa9db"
   }
 };
